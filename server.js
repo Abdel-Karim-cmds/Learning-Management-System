@@ -32,7 +32,7 @@ app.use(bodyparser.json())
 app.use(bodyparser.urlencoded({ entended: true }))
 
 app.set('view engine', 'hbs');
-app.set('trust proxy',1)
+app.set('trust proxy', 1)
 
 app.use('/static', express.static(path.join(__dirname, 'public')))
 app.use('/assets', express.static(path.join(__dirname, 'public/assets')))
@@ -62,20 +62,20 @@ app.get('/dashboard', (req, res) => {
 
 //Main page of stduent/lecturer login
 app.get('/dashboard1', (req, res) => {
-    res.render('student',{ name: session.user.uName, mail:session.user.uEmail, user: newUser.uType })
+    res.render('student', { name: session.user.uName, mail: session.user.uEmail, user: newUser.uType })
 })
 
 //Get the session information
-app.get('/getSession',(req,res)=>{
+app.get('/getSession', (req, res) => {
     res.send(session.user)
 })
 
 //Course page of stduent/lecturer login
 app.get('/dashboard2', (req, res) => {
     if (newUser.uType == 'Student') {
-        res.render('stud_courses', { name: session.user.uName, user: session.user.uType,mail:session.user.uEmail, doing: 'learning' });
+        res.render('stud_courses', { name: session.user.uName, user: session.user.uType, mail: session.user.uEmail, doing: 'learning' });
     } else {
-        res.render('stud_courses', { name: session.user.uName, user: session.user.uType, mail:session.user.uEmail, doing: 'teaching' });
+        res.render('stud_courses', { name: session.user.uName, user: session.user.uType, mail: session.user.uEmail, doing: 'teaching' });
     }
 })
 
@@ -91,7 +91,7 @@ app.get('/a_courses', (req, res) => {
 
 //Login Button
 app.post('/login', (req, res) => {
-// let data = JSON.parse(fs.readFileSync('People.json'))
+    // let data = JSON.parse(fs.readFileSync('People.json'))
     if (req.body.email == credential.email && req.body.password == credential.password) {
         session = req.session;
         session.userName = req.body.email;
@@ -102,7 +102,7 @@ app.post('/login', (req, res) => {
         console.log(data)
         for (let i = 0; i < data.length; i++) {
             if ((req.body.email == data[i].email) && (req.body.password == data[i].Password)) {
-                newUser = { uEmail:data[i].email,uName: data[i].stud_name, uID: data[i].id, uPwd: data[i].Password, uType: data[i].Type }
+                newUser = { uEmail: data[i].email, uName: data[i].stud_name, uID: data[i].id, uPwd: data[i].Password, uType: data[i].Type }
                 session = req.session;
                 session.user = newUser;
                 console.log(req.session)
@@ -129,7 +129,7 @@ app.get('/sendCourse', function(request, response) {
 })
 
 //Terminates the sessions
-app.get('/logout', (req, res) =>{
+app.get('/logout', (req, res) => {
     req.session.destroy();
     console.log("user logged out.")
     res.redirect('/');
@@ -171,6 +171,8 @@ app.post("/addStud", urlencoded, (request, response) => {
 });
  */
 
+
+console.log("This is just a random line")
 
 //Opens the port
 app.listen(port, () => { console.log("Listening to server 3000") });
