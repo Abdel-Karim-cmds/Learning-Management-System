@@ -1,0 +1,40 @@
+body{
+    background-image: url('/assets/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+.center-div{
+    padding-top: 10%;
+}
+.btn.btn-success{
+    padding: .4em 2em;
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #d8bfd8;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+.btn.btn-success:hover {background-color: #d8b2d1}
+  
+.btn.btn-success:active {
+  background-color:  	#DA70D6;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+form {
+    padding: 0 3em;
+}
+#login .title>spam{
+    font-size: .8em;
+}
+
+  
+

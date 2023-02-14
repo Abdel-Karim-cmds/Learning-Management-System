@@ -1,0 +1,106 @@
+.nav-item {
+    color: #663399 !important;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.nav-link {
+    color: #663399 !important;
+    font-weight: bold;
+}
+
+.navbar-brand {
+    width: fit-content;
+}
+
+.navbar {
+    background-color: #D5F4EC !important;
+}
+
+.navbar-brand {
+    background-color: #d8bfd8 !important;
+    color: #663399 !important;
+    font-weight: bold;
+}
+
+#signout {
+    background-color: #d8bfd8 !important;
+    color: #663399;
+    width: fit-content;
+    padding-left: 1cm;
+    padding-right: 1cm;
+    text-align: center;
+}
+
+#signoutt {
+    background-color: #d8bfd8 !important;
+    color: #663399;
+    width: 100%;
+    height: fit-content;
+    /* padding-top: 1em;
+    padding-left: 1cm;
+    padding-right: 1cm;*/
+    text-align: center;
+    font-size: 25px;
+}
+
+.Header {
+    text-align: center !important;
+}
+
+#table {
+    color: #663399;
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+}
+
+#user {
+    font-size: 15px;
+}
+
+.btn.btn-success {
+    padding: .4em 2em;
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #d8bfd8;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+}
+
+.btn.btn-success:hover {
+    background-color: #d8b2d1
+}
+
+.btn.btn-success:active {
+    background-color: #DA70D6;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.modal{
+    justify-content: center;
+    align-items: center;
+    /* display: flex; */
+}
+.modal-dialog{
+    /* position: absolute; */
+    max-height: 80%;
+}
+
+.checkList{
+    border: 2px solid black;
+    width: 300px;
+    height: 100px;
+    overflow-y: scroll;
+}

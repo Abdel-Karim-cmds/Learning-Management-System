@@ -1,0 +1,41 @@
+[{
+        "id": "APT3065",
+        "c_name": "Mid-term Project",
+        "description": "A course you need to graduate and is stressful"
+    },
+    {
+        "id": "APP4035",
+        "c_name": "Web Framework",
+        "description": "A course you need to graduate and is stressful as well"
+    },
+    {
+        "id": "APT3025",
+        "c_name": "Machine Learning",
+        "description": "A course you need to graduate and is stressful as well"
+    },
+    {
+        "id": "SFE4020",
+        "c_name": "Software Design and architecture",
+        "description": "The lecturer is way too joyful"
+    },
+    {
+        "id": "SFE4030",
+        "c_name": "SOFTWARE TESTING and QUALITY ASSURANCE",
+        "description": "The lecturer is strange"
+    },
+    {
+        "id": "FIC4020",
+        "c_name": "Fraud accounting and investigation",
+        "description": "I know nothing about this"
+    },
+    {
+        "id": "APT3090",
+        "c_name": "Cryptography",
+        "description": "A course on how to encode and decrypt"
+    },
+    {
+        "id": "APT4900",
+        "c_name": "Final Project",
+        "description": "This is the end of your life"
+    }
+]
