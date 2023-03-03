@@ -16,18 +16,22 @@ body{
     text-align: center;
     text-decoration: none;
     outline: none;
-    color: #fff;
-    background-color: #d8bfd8;
+    color: #663399;
+    background-color: #D5F4EC;
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
 }
-.btn.btn-success:hover {background-color: #d8b2d1}
-  
+.btn.btn-success:hover {
+    color: #663399;
+    background-color: rgba(102,51,153,0.40);
+}
+
 .btn.btn-success:active {
-  background-color:  	#DA70D6;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+    color: #a2eedb;
+    background-color: #663399;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 form {
     padding: 0 3em;
@@ -36,5 +40,7 @@ form {
     font-size: .8em;
 }
 
-  
-
+#err{
+    font-size: large;
+    color: #663399;
+}

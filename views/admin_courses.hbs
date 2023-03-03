@@ -1,11 +1,12 @@
 {{!-- This is using addScript --}}
+{{!-- This is using allCoursesDisplay --}}
 <!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome back Admin{{name}}</title>
+    <title>Welcome back, Admin</title>
 
     <link rel="canonical" href="https://v5.getbootstrap.com/docs/5.0/examples/dashboard/">
 
@@ -14,14 +15,16 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/static/css/style2.css">
 
+
 </head>
 
-<body>
+<body onload="getCourse()">
+
     {{!-- The menu bar --}}
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <span class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="/dashboard">Welcome back, Admin{{name}}</span>
+        <span class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="/dashboard">Welcome back, Admin</span>
         <ul class="navbar-nav px-3">
-            <li class="nav-item text-nowrap"> <span id="user">{{user}} </span> Admin Dashboard</li>
+            <li class="nav-item text-nowrap"> Admin Dashboard</li>
         </ul>
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
@@ -45,18 +48,9 @@
                         <li class="nav-item">
                             <div id="signoutt">
                             <a class="nav-link active" aria-current="page" href="#">
-                                 <a href = "/dashboard" class="nav-link" style=" font-size: 20px;"> Students 
+                                 <a href = "/dashboard" class="nav-link" style=" font-size: 20px;"> Users 
                             </a>
                             </div>
-                        </li>
-                        <li class="nav-item">
-                            <div id="signoutt">
-                            <a class="nav-link" href="#">
-                                 <a href = "/lec" class="nav-link" style=" font-size: 20px;"> Lecturers 
-                                
-                            </a>
-                            </div>
-                            
                         </li>
                         <li class="nav-item">
                             <div id="signoutt">
@@ -74,7 +68,7 @@
             <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
                 <br>
                 <br>
-                <h2 id="signoutt">{{type}} Courses</h2>
+                <h2 id="signoutt">Courses</h2>
                 <br>
                 <br>
                 <div class="table-responsive">
@@ -87,9 +81,8 @@
                             </tr>
                         </thead>
                     </table>
-                    <br>
-                    <br>
-                    <button class = "btn btn-success"data-toggle="modal" data-target="#addCourse">Add Course</button>
+                   
+                   
                 </div>
                 <br>
                 <br>
@@ -97,7 +90,7 @@
 
                 <!-- Modal for Courses  -->
 
-                {{!-- This is also the form --}}
+                {{!-- This is the form for course registration --}}
 
         <div class="modal fade" id="addCourse" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -109,28 +102,39 @@
                     </button>
                     </div>
                     <div class="modal-body">
-                        <form action="" method="post">
-                            <label for="id">Course Id:</label>
-                            <input type="text" class="form-control" required>
-                            <label for="name">Course Name:</label>
-                            <input type="text" class="form-control" required>
+                        <form id="course">
+                            <label for="idCourse">Course Id:</label>
+                            <input type="text" class="form-control" required id="idCourse">
+                            <label for="nameCourse">Course Name:</label>
+                            <input type="text" class="form-control" required id="nameCourse">
                             <label for="description">Course Description:</label>
-                            <input type="text" class="form-control" required>
+                            <input type="text" class="form-control" required id="passCourse">
+                            <div class="modal-footer">
+                                <button class="btn btn-warning">Submit</button>
+                            </div>
                         </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-warning">Submit</button>
+                       
                     </div>
                 </div>
             </div>
         </div>
 
-<!-- ****************/ -->
+                    {{!-- This is the end of the form registration --}}
 
+<!-- ****************/ -->
+<br>
+       <br>
+
+<div>
+                     <button  id= "adding" data-toggle="modal" data-target="#addCourse">Add Course</button>
+                </div>
             </main>
+
+            
         </div>
     </div>
 <script type="text/javascript" src="/static/js/addScript.js"></script>
+<script type="text/javascript" src="/static/js/allCoursesDisplay.js"></script>
 </body>
 
 </html>

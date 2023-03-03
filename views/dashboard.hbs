@@ -1,4 +1,5 @@
 {{!-- This is using addScript --}}
+{{!-- This is using adminCourse --}}
 <!doctype html>
 <html lang="en">
 
@@ -16,7 +17,7 @@
 
 </head>
 
-<body onload="getdetails2()">
+<body onload="getPeople()">
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
         <span class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="/dashboard">Welcome back, Admin</span>
         <ul class="navbar-nav px-3">
@@ -41,18 +42,10 @@
                         <li class="nav-item">
                             <div id="signoutt">
                             <a class="nav-link active" aria-current="page" href="#">
-                                 <a href = "/dashboard" class="nav-link" style=" font-size: 20px;"> Students 
+                                 <a href = "/dashboard" class="nav-link" style=" font-size: 20px;"> Users 
                             </a>
                             </div>
                         </li>
-                        <li class="nav-item">
-                            <div id="signoutt">
-                            <a class="nav-link" href="#">
-                                 <a href = "/lec" class="nav-link" style=" font-size: 20px;"> Lecturers 
-                                
-                            </a>
-                            </div>
-                            
                         </li>
                         <li class="nav-item">
                             <div id="signoutt">
@@ -66,11 +59,11 @@
             </nav>
 
 
-            {{!-- The students information  --}}
+            {{!-- The User's information  --}}
             <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
                 <br>
                 <br>
-                <h2 id="signoutt">Students</h2>
+                <h2 id="signoutt">Users</h2>
                 <br>
                 <br>
                 <div class="table-responsive">
@@ -80,22 +73,21 @@
                                 <th style=" font-size: 20px;">ID</th>
                                 <th style=" font-size: 20px;">Name</th>
                                 <th style=" font-size: 20px;">Email</th>
-                                <th style=" font-size: 20px;">View Details</th>
+                                <th style=" font-size: 20px;">Password</th>
+                                <th style=" font-size: 20px;">Courses learning</th>
+                                <th style=" font-size: 20px;">Courses teaching</th>
                             </tr>
                         </thead>
+                        <tr></tr>
+                        <tr></tr>
                     </table>
                     <br>
-                    <br>
-                    <button class = "btn btn-success" data-toggle="modal" data-target="#addStudent">Add Student</button>
+                   
                 </div>
-                <br>
-                <br>
 
-            {{!-- End of The students information --}}
+            {{!-- End of The User's information --}}
 
-        <!-- Modal for course  -->
-
-        {{!-- Student registration form --}}
+        {{!-- User registration form --}}
         <div class="modal fade" id="addStudent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -106,36 +98,48 @@
                     </button>
                     </div>
                     <div class="modal-body">
-                        <form>
-                            <label for="id">Student Email:</label>
-                            <input type="text" class="form-control" required id="mailStud">
-                            <label for="id">Student Id:</label>
-                            <input type="text" class="form-control" required id="studID">
-                            <label for="name">Student Name:</label>
-                            <input type="text" class="form-control" required id="studName">
-                            <label for="password">Student Password:</label>
-                            <input type="text" class="form-control" required id="studPass">
+                        <form id="person">
+                            <label for="id">Id:</label>
+                            <input type="text" class="form-control" id="studID" required>
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" id="studName" required>
+                            <label for="id">Email:</label>
+                            <input type="email" class="form-control" id="mailStud" required>
+                            <label for="password">Password:</label>
+                            <input type="password" class="form-control" id="studPass" required>
                             <label for="courses">Courses</label>
+                            
                             <div class="checkList">
                                 <div id="checkboxList" class="form-check form-check-inline">
-                            </div>
+
+                                </div>
                             </div>
                             <div class="modal-footer">
-                                <button class="btn btn-warning" onclick="addStud()">Submit</button>
+                                <button class="btn btn-warning">Submit</button>
                             </div>
                         </form>
+                        
+                            
                     </div>
                     
                 </div>
             </div>
         </div>
 
+        <!-- End of User registration form -->
+        <br>
+       <br>
 
+                <div>
+                    <button  id="adding" data-toggle="modal" data-target="#addStudent">Add User</button>
+                </div>
+                   
             </main>
         </div>
     </div>
+    
 <script type="text/javascript" src="/static/js/addScript.js"></script>
-<script type="text/javascript" src="/static/js/displayCourse.js"></script>
+<script type="text/javascript" src="/static/js/adminCourse.js"></script>
 </body>
 
 </html>

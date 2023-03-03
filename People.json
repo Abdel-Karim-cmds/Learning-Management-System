@@ -4,136 +4,144 @@
     "id": "661556",
     "stud_name": "Abdel Karim",
     "Password": "123",
-    "courses": [
-      "APP4035",
-      "APT3025",
-      "SFE4020"
-    ],
-    "Type": "Student"
-  },
-  {
-    "email": "babdelkarim2@usiu.ac.ke",
-    "id": "661558",
-    "stud_name": "Abdel Karim",
-    "Password": "123",
-    "courses": [
-      "APP4035",
-      "APT3025",
-      "SFE4020",
-      "APT3025",
-      ""
-    ],
-    "Type": "Student"
-  },
-  {
-    "email": "babdelkarim3@usiu.ac.ke",
-    "id": "668558",
-    "stud_name": "Abdel Karim",
-    "Password": "123",
-    "courses": [
-      "APP4035",
-      "APT3025",
-      "SFE4020",
-      "APT3025",
-      "SFE4030"
-    ],
-    "Type": "Lecturer"
+    "courses": {
+      "student": [
+        "APP4035",
+        "SFE4020"
+      ],
+      "lecturer": [
+        "SFE4030",
+        "APT4900"
+      ]
+    }
   },
   {
     "email": "kessak@usiu.ac.ke",
     "id": "661737",
     "stud_name": "Khawla Essak",
     "Password": "456",
-    "courses": [
-      "APP4035",
-      "SFE4020",
-      "SFE4030"
-    ],
-    "Type": "Student"
+    "courses": {
+      "student": [
+        "APP4035",
+        "SFE4020"
+      ],
+      "lecturer": [
+        "SFE4030"
+      ]
+    }
   },
   {
     "email": "mpatel@usiu.ac.ke",
     "id": "659463",
     "stud_name": "Manav Patel",
     "Password": "789",
-    "courses": [
-      "APP4035",
-      "APT4900",
-      "APT3090"
-    ],
-    "Type": "Lecturer"
+    "courses": {
+      "student": [
+        "APT3095",
+        "SFE4020"
+      ],
+      "lecturer": [
+        "SFE4030"
+      ]
+    }
   },
   {
     "email": "kkassam@usiu.ac.ke",
     "id": "660713",
     "stud_name": "Khudeija Kassam",
     "Password": "159",
-    "courses": [
-      "APP4035",
-      "APT4900",
-      "APT3090",
-      "FIC4020"
-    ],
-    "Type": "Lecturer"
+    "courses": {
+      "student": [
+        "APT3010",
+        "APT3065"
+      ],
+      "lecturer": [
+        "APP4035"
+      ]
+    }
   },
   {
-    "email": "babdelkarim4@usiu.ac.ke",
-    "id": "662749",
-    "stud_name": "The GOAT",
+    "email": "skagawa@usiu.ac.ke",
+    "id": "661177",
+    "stud_name": "Sean Kagawa",
     "Password": "123",
-    "courses": [
-      "APP4035",
-      "APT4900",
-      "SFE4020"
-    ],
-    "Type": "Student"
+    "courses": {
+      "student": [
+        "APT3065",
+        "APP4035",
+        "PSY1101"
+      ],
+      "lecturer": [
+        "IST4035"
+      ]
+    }
   },
   {
-    "email": "lec@gmail.com",
-    "id": "661223",
-    "stud_name": "GOATINHO",
+    "email": "kshawn@usiu.ac.ke",
+    "id": "660423",
+    "stud_name": "Shawn Kinyanjui",
     "Password": "123",
-    "courses": [
-      "APP4035",
-      "APT4900",
-      "SFE4020"
-    ],
-    "Type": "Lecturer"
+    "courses": {
+      "student": [
+        "APT3065",
+        "APP4035",
+        "SFE4020"
+      ],
+      "lecturer": [
+        "APT3025"
+      ]
+    }
   },
   {
-    "email": "babdelkarim66@usiu.ac.ke",
-    "id": "123456",
-    "stud_name": "Baba",
-    "Password": "123456",
-    "courses": [
-      "APP4035",
-      "APT4900",
-      "SFE4020"
-    ],
-    "Type": "Student"
+    "email": "dasjk@fakkdl.com",
+    "id": "661558",
+    "stud_name": "abc",
+    "Password": "admin123",
+    "courses": {
+      "student": [],
+      "lecturer": []
+    }
   },
   {
-    "email": "stud1",
-    "id": "123456",
-    "stud_name": "studinho",
-    "Password": "123",
-    "courses": [
-      "APP4035",
-      "APT4900",
-      "SFE4020"
-    ],
-    "Type": "Student"
+    "email": "assdasd@asdjsa.com",
+    "id": "admin@gmail.com",
+    "stud_name": "adssa",
+    "Password": "admin123",
+    "courses": {
+      "student": [
+        "APT3065"
+      ],
+      "lecturer": []
+    }
   },
   {
-    "email": "lec2@usiu.ac.ke",
-    "id": "158789",
-    "stud_name": "lec 2",
-    "Password": "123",
-    "courses": [
-      "APP4035",
-      "APT4900",
-      "SFE4020"
-    ],
-    "Type": "Lecturer"
+    "email": "asdas@dashjda.com",
+    "id": "admin@gmail.com",
+    "stud_name": "dasdas",
+    "Password": "admin123",
+    "courses": {
+      "student": [],
+      "lecturer": []
+    }
+  },
+  {
+    "email": "asdkasjdasfas@sahjjaca.com",
+    "id": "asfdaskjk",
+    "stud_name": "dadhjka",
+    "Password": "admin123",
+    "courses": {
+      "student": [],
+      "lecturer": []
+    }
+  },
+  {
+    "email": "asdasdl@asdas.com",
+    "id": "661224",
+    "stud_name": "asdhjaskd",
+    "Password": "admin123",
+    "courses": {
+      "student": [],
+      "lecturer": []
+    }
   }
 ]
