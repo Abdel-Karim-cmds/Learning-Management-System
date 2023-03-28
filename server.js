@@ -8,6 +8,8 @@ const fileName = "People.json"
 const courseFile = "Courses.json"
 const fs = require('fs')
 const jsonParser = bodyparser.json();
+const filestore = require("session-file-store")(sessions)
+
 const oneDay = 1000 * 60 * 60 * 24;
 
 const credential = {
@@ -36,14 +38,25 @@ app.use('/static', express.static(path.join(__dirname, 'public')))
 app.use('/assets', express.static(path.join(__dirname, 'public/assets')))
 app.use(cookieParser())
 
+app.use((request, response, next) => {
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); 
+    response.setHeader("Pragma", "no-cache"); 
+    response.setHeader("Expires", "0"); 
+    next()
+  });
+  
+// app.use(nocache())
+
 // Enables the use of Express session
 app.use(sessions({
-    secret: "thisadhjkasjdkashdjkasfasjkfasjkgfasdd4as65418947561984",
-    resave: false,
+    name: "User_Session",
+    secret: "8Ge2xLWOImX2HP7R1jVy9AmIT0ZN68oSH4QXIyRZyVqtcl4z1I",
     saveUninitialized: false,
-    cookie: { maxAge: oneDay },
-    store: new JsonStore()
-}))
+    cookie: { maxAge: oneDay, httpOnly: false },
+    resave: false,
+    store: new filestore({ logFn: function() {} }),
+    path: "./sessions/"
+}));
 
 var session;
 var message;
@@ -55,12 +68,18 @@ app.get('/', (request, response) => {
 
 // Admin Dashboard
 app.get('/dashboard', (request, response) => {
-    response.render('dashboard');
+    if(request.session.user)
+        response.render('dashboard');
+    else
+        response.redirect(301,'/')
 })
 
 //Main page of stduent/lecturer login
 app.get('/dashboard1', (request, response) => {
-    response.render('student',{ name: session.user.stud_name})
+    if(request.session.user)
+        response.render('student',{ name: session.user.stud_name})
+    else
+        response.redirect(301,'/')
 })
 
 //Get the session information
@@ -70,8 +89,11 @@ app.get('/getSession',(request,response)=>{
 
 //Gets the page where the admin sees the courses
 app.get('/a_courses', (request, response) => {
-    if(session.user){
-    response.render('admin_courses.hbs');}
+    if(request.session.user)
+        response.render('admin_courses.hbs');
+    else
+        response.redirect(301,'/')
+
 })
 
 //Login Button
@@ -106,14 +128,18 @@ app.get('/sendCourse', function(request, response) {
 })
 
 //Terminates the sessions
-app.get('/logout', (request, response) =>{
-    message = ""
-    request.session.destroy((err) => {
-        if(err) throw err;
-        console.log("User logged out")
-        response.redirect('/'); // redirect to the home page
+
+app.get('/logout', (request, response) => {
+    session = request.session
+    session.destroy((err) => {
+        message = null
+        if (err) throw err;
+        session = null;
+        response.clearCookie('user')
+        response.clearCookie('User_Session')
+        response.redirect('/')
     })
-});
+})
 
 
 //Adds the user to the Person.json
