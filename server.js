@@ -77,14 +77,14 @@ app.get('/dashboard', (request, response) => {
 //Main page of stduent/lecturer login
 app.get('/dashboard1', (request, response) => {
     if(request.session.user)
-        response.render('student',{ name: session.user.stud_name})
+        response.render('student',{ name: request.session.user.stud_name})
     else
         response.redirect(301,'/')
 })
 
 //Get the session information
 app.get('/getSession',(request,response)=>{
-    response.send(session.user)
+    response.send(request.session.user)
 })
 
 //Gets the page where the admin sees the courses
@@ -99,14 +99,14 @@ app.get('/a_courses', (request, response) => {
 //Login Button
 app.post('/login', (request, response) => {
     if (request.body.email == credential.email && request.body.password == credential.password) {
-        session = request.session;
-        session.user = request.body;
+        // session = request.session;
+        request.session.user = request.body;
         response.redirect('/dashboard') // If admin is logged
     } else {
         for (let i = 0; i < data.length; i++) {
             if ((request.body.email == data[i].email) && (request.body.password == data[i].Password)) {
-                session = request.session;
-                session.user = data[i];
+                // session = request.session;
+                request.session.user = data[i];
                 return response.redirect('/dashboard1')
             }
         }
@@ -130,8 +130,8 @@ app.get('/sendCourse', function(request, response) {
 //Terminates the sessions
 
 app.get('/logout', (request, response) => {
-    session = request.session
-    session.destroy((err) => {
+    // session = request.session
+    request.session.destroy((err) => {
         message = null
         if (err) throw err;
         session = null;
