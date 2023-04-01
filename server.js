@@ -32,14 +32,6 @@ app.use(bodyparser.urlencoded({ entended: true }))
 app.set('view engine', 'hbs');
 app.set('trust proxy',1)
 
-
-app.use((request, response, next) => {
-    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); 
-    response.setHeader("Pragma", "no-cache"); 
-    response.setHeader("Expires", "0"); 
-    next()
-});
-
 app.use('/static', express.static(path.join(__dirname, 'public')))
 app.use('/assets', express.static(path.join(__dirname, 'public/assets')))
 app.use(cookieParser())
@@ -73,7 +65,7 @@ app.get('/dashboard1', (request, response) => {
 
 //Get the session information
 app.get('/getSession',(request,response)=>{
-    response.send(request.session.user)
+    response.send(session.user)
 })
 
 //Gets the page where the admin sees the courses
@@ -85,14 +77,14 @@ app.get('/a_courses', (request, response) => {
 //Login Button
 app.post('/login', (request, response) => {
     if (request.body.email == credential.email && request.body.password == credential.password) {
-        // session = request.session;
-        request.session.user = request.body;
+        session = request.session;
+        session.user = request.body;
         response.redirect('/dashboard') // If admin is logged
     } else {
         for (let i = 0; i < data.length; i++) {
             if ((request.body.email == data[i].email) && (request.body.password == data[i].Password)) {
-                // session = request.session;
-                request.session.user = data[i];
+                session = request.session;
+                session.user = data[i];
                 return response.redirect('/dashboard1')
             }
         }

@@ -35,9 +35,7 @@
     
 
     <div class="container-fluid">
-
         <div class="row">
-
             {{!-- The dashboard --}}
             <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
                 <div class="position-sticky pt-3">
@@ -69,37 +67,39 @@
                 </div>
             </nav>
 
-
-            {{!-- Beginning of the table for courses --}}
+            {{!-- Beginning of the table for details for lecturers --}}
             <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
                 <br>
                 <br>
-                <h2 id="signoutt">{{type}} Courses</h2>
+                <h2 id="signoutt">{{type}} Lecturers</h2>
                 <br>
                 <br>
                 <div class="table-responsive">
                     <table class="table table-striped table-sm" id="table">
                         <thead>
                             <tr>
-                                <th style=" font-size: 20px;">Course Code</th>
-                                <th style=" font-size: 20px;">Course Name</th>
-                                <th style=" font-size: 20px;">Course Description</th>
+                                <th style=" font-size: 20px;">ID</th>
+                                <th style=" font-size: 20px;">Name</th>
+                                <th style=" font-size: 20px;">Email</th>
+                                <th style=" font-size: 20px;">Email</th>
                             </tr>
                         </thead>
                     </table>
                     <br>
                     <br>
-                    <button class = "btn btn-success"data-toggle="modal" data-target="#addCourse">Add Course</button>
+                    <button class = "btn btn-success"  data-toggle="modal" data-target="#addLecturer">Add Lecturer</button>
                 </div>
                 <br>
                 <br>
-                {{!-- End of the table for courses --}}
+                
+                {{!-- End of the table for lecturers details --}}
+                
 
-                <!-- Modal for Courses  -->
+            <!-- Modal for Lecturers  -->
 
-                {{!-- This is also the form --}}
-
-        <div class="modal fade" id="addCourse" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            {{!-- This is also the form --}}
+            
+            <div class="modal fade" id="addLecturer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -109,27 +109,29 @@
                     </button>
                     </div>
                     <div class="modal-body">
-                        <form action="" method="post">
-                            <label for="id">Course Id:</label>
-                            <input type="text" class="form-control" required>
-                            <label for="name">Course Name:</label>
-                            <input type="text" class="form-control" required>
-                            <label for="description">Course Description:</label>
-                            <input type="text" class="form-control" required>
+                        <form>
+                            <label for="id">Lecturer Email:</label>
+                            <input type="text" class="form-control" required id="mailLec">
+                            <label for="id">Lecturer Id:</label>
+                            <input type="text" class="form-control" required id="idLec">
+                            <label for="name">Lecturer Name:</label>
+                            <input type="text" class="form-control" required id="nameLec">
+                            <label for="password">Lecturer Password:</label>
+                            <input type="text" class="form-control" required id="passLec">
+                            <div class="modal-footer">
+                                <button class="btn btn-warning" onclick="addLec()">Submit</button>
+                            </div>
                         </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-warning">Submit</button>
                     </div>
                 </div>
             </div>
         </div>
 
 <!-- ****************/ -->
-
             </main>
         </div>
     </div>
+
 <script type="text/javascript" src="/static/js/addScript.js"></script>
 </body>
 

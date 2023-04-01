@@ -10,7 +10,7 @@
 }
 
 .navbar-brand {
-    width: 310px;
+    width: fit-content;
 }
 
 .navbar {
@@ -61,134 +61,46 @@
 
 .btn.btn-success {
     padding: .4em 2em;
-    display: flex   ;
-    position: relative;
-    clear: both;
-    float: left;
+    display: inline-block;
     padding: 5px 10px;
     font-size: 24px;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
     outline: none;
-    color: #663399;
-    background-color: #D5F4EC;
+    color: #fff;
+    background-color: #d8bfd8;
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
     margin: 0;
     position: absolute;
     top: 50%;
-    margin-bottom: 0px;
 }
 
 .btn.btn-success:hover {
-    color: #663399;
-    background-color: rgba(102,51,153,0.40);
+    background-color: #d8b2d1
 }
 
 .btn.btn-success:active {
-    color: #a2eedb;
-    background-color: #663399;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-}
-.viewdetails{
-    background-color: #D5F4EC;
-}
-
-.btn.btn-warning {
-    padding: .4em 2em;
-    display: flex   ;
-    position: relative;
-    padding: 5px 10px;
-    font-size: 24px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: #663399;
-    background-color: #D5F4EC;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;	
-} 
-
-.btn.btn-warning:hover {
-    color: #663399;
-    background-color: rgba(102,51,153,0.40);
-}
-
-.btn.btn-warning:active {
-    color: #a2eedb;
-    background-color: #663399;
+    background-color: #DA70D6;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
 
-#adding{
-    padding: .4em 2em;
-    display: flex   ;
-    position: relative;
-    padding: 5px 10px;
-    font-size: 24px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: #663399;
-    background-color: #D5F4EC;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
+.modal{
+    justify-content: center;
+    align-items: center;
+    /* display: flex; */
 }
-#adding:hover {
-    color: #663399;
-    background-color: rgba(102,51,153,0.40);
+.modal-dialog{
+    /* position: absolute; */
+    max-height: 80%;
 }
 
-#adding:active {
-    color: #a2eedb;
-    background-color: #663399;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-}
-.listOfCourses{
-    letter-spacing: 2px;
-}
-
-.modal-body{
-    color:#663399;
-    font-weight: bold;
-}
-/* .position-sticky{
-    max-width: 1px !important;
-} */
-/* #sidebarMenu{
-    max-width: 1px !important;
-} */
-table{
-    width: 120% !important;
-}
-td{
-    height: 3em;
-}
 .checkList{
     border: 2px solid black;
     width: 300px;
     height: 100px;
     overflow-y: scroll;
-}
-th{
-    width: fit-content !important;
-}
-
-#informationTable{
-    color:#663399;
-}
-
-#courseTable{
-    color:#663399;
-    text-align: center;
-    
 }

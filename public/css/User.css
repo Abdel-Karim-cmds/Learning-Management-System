@@ -1,0 +1,115 @@
+body {
+    background-color: #000000;
+}
+
+.box {
+    width: fit-content;
+    height: 45em;
+    margin: 10em;
+    border: 2px solid #707070;
+}
+
+.box3 {
+    width: fit-content;
+    height: 30em;
+    margin: 10em;
+    border: 2px solid #707070;
+}
+
+.box2 {
+    margin-top: 3em;
+}
+
+.head {
+    width: 100%;
+    height: 2em;
+    margin-top: 1em;
+    background-color: #000000;
+    font-size: 32px;
+}
+
+.head2 {
+    width: 100%;
+    height: 2em;
+    margin-top: 1em;
+    background-color: #707070;
+    font-size: 32px;
+}
+
+.container {
+    padding-left: 2em;
+    /* float: left; */
+    box-sizing: border-box;
+}
+
+.description {
+    width: 70%;
+    height: inherit;
+    color: whitesmoke;
+    float: left;
+    background-color: #707070;
+    font-size: 3em;
+    background-repeat: no-repeat, repeat;
+    background-size: 100%;
+    /* padding-left: 1em; */
+}
+
+.description a {
+    font-size: 0.5em;
+    margin-bottom: 0em;
+}
+
+.logs {
+    width: auto;
+    /* height: inherit; */
+    /* float: left; */
+    /* margin-top: 1em; */
+    color: whitesmoke;
+    padding-left: 1em;
+}
+
+
+/* Full-width inputs */
+
+input[type=text],
+input[type=password],
+input[type=tel],
+select,
+option {
+    width: 15em;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 5cm;
+}
+
+
+/* Set a style for all buttons */
+
+button {
+    background-color: #7cc2f1;
+    width: 10em;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 5cm;
+}
+
+
+/* Add a hover effect for buttons */
+
+button:hover {
+    opacity: 0.8;
+}
+
+.logs2 {
+    width: auto;
+    height: inherit;
+    float: right;
+    margin-right: 5%;
+    margin-top: 6em;
+    box-sizing: border-box;
+    color: whitesmoke;
+}
