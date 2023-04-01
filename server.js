@@ -32,6 +32,14 @@ app.use(bodyparser.urlencoded({ entended: true }))
 app.set('view engine', 'hbs');
 app.set('trust proxy',1)
 
+
+app.use((request, response, next) => {
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); 
+    response.setHeader("Pragma", "no-cache"); 
+    response.setHeader("Expires", "0"); 
+    next()
+});
+
 app.use('/static', express.static(path.join(__dirname, 'public')))
 app.use('/assets', express.static(path.join(__dirname, 'public/assets')))
 app.use(cookieParser())
