@@ -3,6 +3,7 @@ const sessions = require("express-session");
 const JsonStore = require('express-session-json')(sessions)
 const path = require('path');
 const bodyparser = require("body-parser");
+const filestore = require("session-file-store")(sessions)
 const cookieParser = require('cookie-parser');
 const fileName = "People.json"
 const courseFile = "Courses.json"
@@ -30,61 +31,79 @@ app.use(bodyparser.json())
 app.use(bodyparser.urlencoded({ entended: true }))
 
 app.set('view engine', 'hbs');
-app.set('trust proxy',1)
+app.set('trust proxy', 1)
 
 app.use('/static', express.static(path.join(__dirname, 'public')))
 app.use('/assets', express.static(path.join(__dirname, 'public/assets')))
 app.use(cookieParser())
 
+app.use((request, response, next) => {
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+    response.setHeader("Pragma", "no-cache");
+    response.setHeader("Expires", "0");
+    next()
+});
+
 // Enables the use of Express session
 app.use(sessions({
-    secret: "thisadhjkasjdkashdjkasfasjkfasjkgfasdd4as65418947561984",
-    resave: false,
+    name: "User_Session",
+    secret: "8Ge2xLWOImX2HP7R1jVy9AmIT0ZN68oSH4QXIyRZyVqtcl4z1I",
     saveUninitialized: false,
-    cookie: { maxAge: oneDay },
-    store: new JsonStore()
-}))
+    cookie: { maxAge: oneDay, httpOnly: false },
+    resave: false,
+    store: new filestore({ logFn: function () { } }),
+    path: "./sessions/"
+}));
 
-var session;
+// var session;
 var message;
 
 //home route 
 app.get('/', (request, response) => {
-    response.render('base', { title: "Login System", error:message });
+    response.render('base', { title: "Login System", error: message });
 })
 
 // Admin Dashboard
 app.get('/dashboard', (request, response) => {
-    response.render('dashboard');
+    if (request.session.user)
+        response.render('dashboard');
+    else
+        response.redirect(301, '/')
 })
 
 //Main page of stduent/lecturer login
 app.get('/dashboard1', (request, response) => {
-    response.render('student',{ name: session.user.stud_name})
+    if (request.session.user)
+        response.render('student', { name: request.session.user.stud_name })
+    else
+        response.redirect(301, '/')
 })
 
 //Get the session information
-app.get('/getSession',(request,response)=>{
-    response.send(session.user)
+app.get('/getSession', (request, response) => {
+    response.send(request.session.user)
 })
 
 //Gets the page where the admin sees the courses
 app.get('/a_courses', (request, response) => {
-    if(session.user){
-    response.render('admin_courses.hbs');}
+    if (request.session.user) {
+        response.render('admin_courses.hbs');
+    }
+    else
+        response.redirect(301, '/')
 })
 
 //Login Button
 app.post('/login', (request, response) => {
     if (request.body.email == credential.email && request.body.password == credential.password) {
-        session = request.session;
-        session.user = request.body;
+        // session = request.session;
+        request.session.user = request.body;
         response.redirect('/dashboard') // If admin is logged
     } else {
         for (let i = 0; i < data.length; i++) {
             if ((request.body.email == data[i].email) && (request.body.password == data[i].Password)) {
-                session = request.session;
-                session.user = data[i];
+                // session = request.session;
+                request.session.user = data[i];
                 return response.redirect('/dashboard1')
             }
         }
@@ -94,22 +113,23 @@ app.post('/login', (request, response) => {
 })
 
 //Gets all the Student and lecturer and sends it to the front-end
-app.get('/getPeople', function(request, response) {
+app.get('/getPeople', function (request, response) {
     const js = fs.readFileSync(fileName, { root: __dirname });
     response.send(js);
 })
 
 //Gets all the Courses and  sends to the front end
-app.get('/sendCourse', function(request, response) {
+app.get('/sendCourse', function (request, response) {
     const js = fs.readFileSync(courseFile, { root: __dirname });
     response.send(js);
 })
 
 //Terminates the sessions
-app.get('/logout', (request, response) =>{
+app.get('/logout', (request, response) => {
     message = ""
     request.session.destroy((err) => {
-        if(err) throw err;
+        if (err) throw err;
+        response.clearCookie('User_Session')
         console.log("User logged out")
         response.redirect('/'); // redirect to the home page
     })
@@ -118,19 +138,19 @@ app.get('/logout', (request, response) =>{
 
 //Adds the user to the Person.json
 app.post("/person", jsonParser, (request, response) => {
-    try{
+    try {
         data.forEach(element => {
-        // the data isscreened before been added to the json file
-            if((element.id == request.body.id )|| (element.email == request.body.email)){
+            // the data isscreened before been added to the json file
+            if ((element.id == request.body.id) || (element.email == request.body.email)) {
                 return response.json({
                     statusCode: 400,
                     method: request.method,
                     message: "This user already exists"
                 });
             }
-            
+
         });
-        
+
         // If the data does not exist it is been added into the json file
         console.log("Received User")
         data.push(request.body);
@@ -141,18 +161,18 @@ app.post("/person", jsonParser, (request, response) => {
             message: "User Inserted Successfully"
         });
     }
-    catch(err){
+    catch (err) {
         console.log("There was an error while inserting the user")
     }
 });
 
 //Adds the course to the Courses.json
 app.post("/course", jsonParser, (request, response) => {
-    try{
+    try {
         //dataCourse is the Courses file
         dataCourse.forEach(element => {
-        // the data is screened before been added to the json file
-            if((element.id == request.body.id) || (element.c_name == request.body.c_name)){
+            // the data is screened before been added to the json file
+            if ((element.id == request.body.id) || (element.c_name == request.body.c_name)) {
                 console.log("This already exists")
                 return response.json({
                     statusCode: 400,
@@ -172,8 +192,9 @@ app.post("/course", jsonParser, (request, response) => {
             message: "Course Inserted Successfully"
         });
     }
-    catch(err){
-        console.log("There was an error while inserting the course")}
+    catch (err) {
+        console.log("There was an error while inserting the course")
+    }
 });
 
 

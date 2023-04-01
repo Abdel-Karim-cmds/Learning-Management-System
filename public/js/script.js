@@ -1,61 +1,84 @@
-const server = 'http://localhost:3000';
-var type;
-var userName;
-information = []
-courses = []
-pCourse = []
-
-sessionInfo = []
+// const server = 'http://localhost:3000';
+userStudCourse = []
+userLecCourse = []
+userCourses = []
+allCourses = []
 
 async function getSession(){
     let response = await fetch('/getSession', {method:"GET"})
     let data = await response.text()
-    sessionInfo = JSON.parse(data)
-    getCourse()
+    let sessionInfo = JSON.parse(data)
+    userStudCourse = sessionInfo.courses.student
+    userLecCourse = sessionInfo.courses.lecturer
+    userCourses = sessionInfo.courses
+    populateInfoTable(sessionInfo)
 }
 
-// Gets a spcific course that the user is affiliated to
-function getspCourse(array) {
-    for (let index = 0; index < array.length; index++) {
-        const element = array[index];
-        if(element.email==sessionInfo.uEmail){
-            console.log("I found it")
-            pCourse.push(element.courses)
-            information.push(element)
-            populateTable(information)
-        }
-    }
-}
 
 //Gets a list of all student and lecturers
 async function getCourse() {
-    let response = await fetch("/getCourse", { method: "GET" });
+    let response = await fetch("/sendCourse", { method: "GET" });
     let data = await response.text();
-    jsondata = JSON.parse(data);
-    getspCourse(jsondata);
+    allCourses = JSON.parse(data);
+    populateCourseTable(allCourses)
+
 }
 
-//Display the information on the table
-function populateTable(informations) {
-    var table = document.getElementById('table');
-    informations.forEach(information => {
-        var row = document.createElement('tr');
-        var dataId = document.createElement('td');
-        var textId = document.createTextNode(information.id);
-        dataId.appendChild(textId);
-        var dataName = document.createElement('td');
-        var textName = document.createTextNode(information.stud_name);
-        dataName.appendChild(textName);
-        var dataCourse = document.createElement('td');
-        var textCourse = document.createTextNode(information.Password);
-        dataCourse.appendChild(textCourse);
-        var dataEmail = document.createElement('td');
-        var textEmail = document.createTextNode(information.email);
-        dataEmail.appendChild(textEmail);
-        row.appendChild(dataId)
-        row.appendChild(dataName)
-        row.appendChild(dataCourse)
-        row.appendChild(dataEmail)
-        table.appendChild(row);
+//Populate the table with the user's informations
+function populateInfoTable(information){
+    let table = document.getElementById('informationTable');
+    var row = document.createElement('tr');
+    var dataId = document.createElement('td');
+    var textId = document.createTextNode(information.id);
+    dataId.appendChild(textId);
+    var dataName = document.createElement('td');
+    var textName = document.createTextNode(information.stud_name);
+    dataName.appendChild(textName);
+    var dataPass = document.createElement('td');
+    var textPass = document.createTextNode(information.Password);
+    dataPass.appendChild(textPass);
+    var dataEmail = document.createElement('td');
+    var textEmail = document.createTextNode(information.email);
+    dataEmail.appendChild(textEmail);
+    row.appendChild(dataId)
+    row.appendChild(dataName)
+    row.appendChild(textPass)
+    row.appendChild(dataEmail)
+    table.appendChild(row)
+    getCourse()
+}
+
+//Populate the course Information table
+function populateCourseTable(courses){
+    courses.forEach(course => {
+        if(userStudCourse.includes(course.id)){
+            createRow(course,'Student')
+        }
+        if(userLecCourse.includes(course.id)){
+            createRow(course,'Lecturer')
+        }
     });
+}
+
+// Function that creates the row with the type of individual i.e student or lecturer
+function createRow(course,type){
+    var table = document.getElementById('courseTable');
+    var row = document.createElement('tr');
+    var dataId = document.createElement('td');
+    var textId = document.createTextNode(course.id);
+    dataId.appendChild(textId)            
+    var dataName = document.createElement('td');
+    var textName = document.createTextNode(course.c_name);
+    dataName.appendChild(textName);
+    var dataCourse = document.createElement('td');
+    var textCourse = document.createTextNode(course.description);
+    dataCourse.appendChild(textCourse)
+    var dataType = document.createElement('td');
+    var textType = document.createTextNode(type);
+    dataType.appendChild(textType);
+    row.appendChild(dataId)
+    row.appendChild(dataName)
+    row.appendChild(dataCourse)
+    row.appendChild(dataType)
+    table.appendChild(row);
 }
