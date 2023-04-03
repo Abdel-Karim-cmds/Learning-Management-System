@@ -17,11 +17,10 @@ async function getSession(){
 
 //Gets a list of all student and lecturers
 async function getCourse() {
-    let response = await fetch("/sendCourse", { method: "GET" });
-    let data = await response.text();
-    allCourses = JSON.parse(data);
-    populateCourseTable(allCourses)
-
+    const response = await fetch("/sendCourse", { method: "GET" });
+    const data = await response.json()
+    console.log(data)
+    populateCourseTable(data)
 }
 
 //Populate the table with the user's informations
