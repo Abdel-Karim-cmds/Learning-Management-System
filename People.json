@@ -143,5 +143,21 @@
       "student": [],
       "lecturer": []
     }
+  },
+  {
+    "email": "sasha@usiu.ac.ke",
+    "id": "665556",
+    "stud_name": "Sasha",
+    "Password": "123",
+    "courses": {
+      "student": [
+        "APT3065",
+        "APP4035",
+        "SFE4030"
+      ],
+      "lecturer": [
+        "APT3025"
+      ]
+    }
   }
 ]
