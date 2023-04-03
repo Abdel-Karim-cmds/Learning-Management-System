@@ -1,0 +1,32 @@
+#Script to delpoy on the Render cloud platform
+
+name: Node.js CI
+
+on:
+  push:
+    braches: [main]
+  pull_request:
+    branches: [main]
+  
+jobs:
+  build:
+  
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Invoke deployment hook
+      uses: distributhor/workflow-webhook@v2
+      env: 
+        webhook_url: ${{secrets.DEPLOY_HOOK_URL}}
+        webhook_secret: ${{secrets.DEPLOY_HOOK_KEY}}
+
+    - uses: bounceapp/render-action@0.6.0
+      with:
+        render-token: ${{secrets.RENDER_API_KEY}}
+        github-token: ${{secrets.ACC_API_KEY}}
+        service-id: "srv-cg9d9mu4dad5p6q8nql0"
+        retries: 20
+        wait: 16000
+        sleep: 30000
