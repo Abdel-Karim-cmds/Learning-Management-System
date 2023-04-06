@@ -1,5 +1,5 @@
 async function getCourse() {
-    const response = await fetch("/sendCourse", { method: "GET" });
+    const response = await fetch("/sendCourse");
     const data = await response.json()
     // console.log(data)
     // populateCourseTable(data)
