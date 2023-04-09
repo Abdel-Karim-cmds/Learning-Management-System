@@ -58,7 +58,7 @@ app.use(sessions({
 // var session;
 var message;
 
-//home route 
+//home route
 app.get('/', (request, response) => {
     response.render('base', { title: "Login System", error: message });
 })
