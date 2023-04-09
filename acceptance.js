@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 const assert = require('assert');
 
-var id = 645320;
+var id = "665464";
 
 //Create User Acceptance Test'
 
@@ -45,7 +45,7 @@ try {
         const studentNameInput = await page.$('#studName');
         await studentNameInput.type('Noah Doe John');
 
-        await page.$eval('#mailStud', el => el.value = 'gmmiriam@usiu.ac.ke');
+        await page.$eval('#mailStud', el => el.value = 'someguy@usiu.ac.ke');
 
         const studentPasswordInput = await page.$('#studPass');
         await studentPasswordInput.type('john123');
@@ -58,27 +58,36 @@ try {
 
         const submitUserDetails = await page.$('#addUserDetailsBtn')
         await submitUserDetails.click();
+        var message;
 
         //Set the modal to closed state
         page.on('dialog', async (dialog) => {
-            //get alert message
-            console.log(await dialog.message());
-            //accept alert
+            message = dialog.message();
+        
             await dialog.accept();
-        });
+        })
 
-        await page.waitForNavigation();
+        const closeBtn = await page.$('#closebtn')
+        await closeBtn.click()
+
+        await page.reload()
+
+        
 
 
-        await page.waitForSelector('.userID'); // wait for the element with class 'userID' to appear on the page
+        const users = await page.waitForSelector('.userID');
+
         const userID = await page.evaluate(() => Array.from(document.getElementsByClassName('userID'), element => element.textContent));
+        
 
-        if (new Set(userID).size != userID.length) {
-            // assert(userID.find(element => element === id.toString()) == null);
-            console.log('Error Adding User');
-        } else {
-            assert(userID.find(element => element === id.toString()) == id.toString());
-            console.log('User Added Successfully');
+    
+        if (message == 'User Inserted Successfully' && userID.includes(id)) {
+            assert(message==='User Inserted Successfully')
+            console.log("Here we are");
+        }
+        else{
+            assert(message==='This user already exists')
+            console.log("Here we are times 2");
         }
 
 

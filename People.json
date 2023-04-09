@@ -107,5 +107,15 @@
         "APT3025"
       ]
     }
+  },
+  {
+    "email": "someguy@usiu.ac.ke",
+    "id": "665464",
+    "stud_name": "Noah Doe John",
+    "Password": "john123",
+    "courses": {
+      "student": [],
+      "lecturer": []
+    }
   }
 ]

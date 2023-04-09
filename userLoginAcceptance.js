@@ -8,13 +8,13 @@ try{
     const page = await browser.newPage();
     await page.goto('http://localhost:3000/');
 
-    const email_input = await page.$('#email_placeholder');
+    const email_input = await page.$('#loginEmail');
     await email_input.type('sasha@usiu.ac.ke');
 
-    const password_input = await page.$('#password_placeholder');
+    const password_input = await page.$('#loginPassword');
     await password_input.type('123');
 
-    const submit_btn = await page.$('#submit_btn');
+    const submit_btn = await page.$('#loginSubmitBtn');
     await submit_btn.click();
 
     await page.waitForTimeout(2000);
