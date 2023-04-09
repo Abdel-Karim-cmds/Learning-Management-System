@@ -6,8 +6,8 @@ async function getCourse() {
     return data
 }
 
-function add(a,b){
-    return a+b
+function add(a, b) {
+    return a + b
 }
 
-module.exports = {getCourse, add}
+module.exports = { getCourse, add }

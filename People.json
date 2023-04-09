@@ -93,58 +93,6 @@
     }
   },
   {
-    "email": "dasjk@fakkdl.com",
-    "id": "661558",
-    "stud_name": "abc",
-    "Password": "admin123",
-    "courses": {
-      "student": [],
-      "lecturer": []
-    }
-  },
-  {
-    "email": "assdasd@asdjsa.com",
-    "id": "admin@gmail.com",
-    "stud_name": "adssa",
-    "Password": "admin123",
-    "courses": {
-      "student": [
-        "APT3065"
-      ],
-      "lecturer": []
-    }
-  },
-  {
-    "email": "asdas@dashjda.com",
-    "id": "admin@gmail.com",
-    "stud_name": "dasdas",
-    "Password": "admin123",
-    "courses": {
-      "student": [],
-      "lecturer": []
-    }
-  },
-  {
-    "email": "asdkasjdasfas@sahjjaca.com",
-    "id": "asfdaskjk",
-    "stud_name": "dadhjka",
-    "Password": "admin123",
-    "courses": {
-      "student": [],
-      "lecturer": []
-    }
-  },
-  {
-    "email": "asdasdl@asdas.com",
-    "id": "661224",
-    "stud_name": "asdhjaskd",
-    "Password": "admin123",
-    "courses": {
-      "student": [],
-      "lecturer": []
-    }
-  },
-  {
     "email": "sasha@usiu.ac.ke",
     "id": "665556",
     "stud_name": "Sasha",

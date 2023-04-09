@@ -58,7 +58,7 @@ app.use(sessions({
 // var session;
 var message;
 
-//home route 
+//home route
 app.get('/', (request, response) => {
     response.render('base', { title: "Login System", error: message });
 })
@@ -96,7 +96,6 @@ app.get('/a_courses', (request, response) => {
 //Login Button
 app.post('/login', (request, response) => {
     if (request.body.email == credential.email && request.body.password == credential.password) {
-        // session = request.session;
         request.session.user = request.body;
         response.redirect('/dashboard') // If admin is logged
     } else {
@@ -138,63 +137,44 @@ app.get('/logout', (request, response) => {
 
 //Adds the user to the Person.json
 app.post("/person", jsonParser, (request, response) => {
-    try {
-        data.forEach(element => {
-            // the data isscreened before been added to the json file
-            if ((element.id == request.body.id) || (element.email == request.body.email)) {
-                return response.json({
-                    statusCode: 400,
-                    method: request.method,
-                    message: "This user already exists"
-                });
-            }
+    // console.log(request.body)
+    const {email,id} = request.body;
+    const found = data.filter(person => person.id == id  || person.email == email)
+    console.log(found)
 
-        });
-
-        // If the data does not exist it is been added into the json file
-        console.log("Received User")
-        data.push(request.body);
-        fs.writeFileSync(fileName, JSON.stringify(data, null, 2));
-        return response.json({
-            statusCode: 200,
-            method: request.method,
-            message: "User Inserted Successfully"
+    if(found.length){
+        return response.status(400).json({
+            message: "This user already exists"
         });
     }
-    catch (err) {
-        console.log("There was an error while inserting the user")
-    }
+    
+    data.push(request.body);
+    fs.writeFileSync(fileName, JSON.stringify(data, null, 2));
+    return response.status(200).json({
+        message: "User Inserted Successfully"
+    });
 });
 
 //Adds the course to the Courses.json
 app.post("/course", jsonParser, (request, response) => {
-    try {
-        //dataCourse is the Courses file
-        dataCourse.forEach(element => {
-            // the data is screened before been added to the json file
-            if ((element.id == request.body.id) || (element.c_name == request.body.c_name)) {
-                console.log("This already exists")
-                return response.json({
-                    statusCode: 400,
-                    method: request.method,
-                    message: "This course already exists"
-                });
-            }
-        });
 
-        // If the data does not exist it is been added into the json file
-        console.log("Received Course")
-        dataCourse.push(request.body);
-        fs.writeFileSync(courseFile, JSON.stringify(dataCourse, null, 2));
-        return response.json({
-            statusCode: 200,
-            method: request.method,
-            message: "Course Inserted Successfully"
-        });
+    const {id,c_name} = request.body;
+    const found = data.filter(course => course.id == id || course.c_name == c_name)
+
+    if(found.length){
+        console.log("This already exists")
+        return response.status(400).json({
+            message: "This course already exists"
+        });   
     }
-    catch (err) {
-        console.log("There was an error while inserting the course")
-    }
+    
+    console.log("Received Course")
+    dataCourse.push(request.body);
+    fs.writeFileSync(courseFile, JSON.stringify(dataCourse, null, 2));
+    return response.status(200).json({
+        message: "Course Inserted Successfully"
+    });
+
 });
 
 
