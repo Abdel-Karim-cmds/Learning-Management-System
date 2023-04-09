@@ -109,14 +109,13 @@ async function addPerson(){
 
 if(document.getElementById('person')){
     document.getElementById('person').addEventListener('submit', (e)=>{
-    sID = parseInt(document.getElementById('studID').value);
-    if((isNaN(sID)) || (parseInt(sID)<600000) || (parseInt(sID)>=700000)){
-        alert('Invalid user ID')
-    }
-    else{
-        addPerson();
-    }
-    e.preventDefault
+    e.preventDefault();
+    sID = document.getElementById('studID').value;
+    verify(sID)
+    if(verify(sID))
+        addPerson()
+    else
+        alert('Invalid User ID')
 })}
 
 if(document.getElementById('course')){
@@ -129,3 +128,11 @@ document.getElementById('course').addEventListener('submit', (e)=>{
     addCourse();}
     e.preventDefault
 })}
+
+
+function verify(id){
+    if(/^[0-9]+$/.test(id) && id>=600000 && id<700000)
+        return true
+    else
+        return false
+}
