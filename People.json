@@ -103,38 +103,6 @@
     }
   },
   {
-    "email": "assdasd@asdjsa.com",
-    "id": "admin@gmail.com",
-    "stud_name": "adssa",
-    "Password": "admin123",
-    "courses": {
-      "student": [
-        "APT3065"
-      ],
-      "lecturer": []
-    }
-  },
-  {
-    "email": "asdas@dashjda.com",
-    "id": "admin@gmail.com",
-    "stud_name": "dasdas",
-    "Password": "admin123",
-    "courses": {
-      "student": [],
-      "lecturer": []
-    }
-  },
-  {
-    "email": "asdkasjdasfas@sahjjaca.com",
-    "id": "asfdaskjk",
-    "stud_name": "dadhjka",
-    "Password": "admin123",
-    "courses": {
-      "student": [],
-      "lecturer": []
-    }
-  },
-  {
     "email": "asdasdl@asdas.com",
     "id": "661224",
     "stud_name": "asdhjaskd",
@@ -158,6 +126,96 @@
       "lecturer": [
         "APT3025"
       ]
+    }
+  },
+  {
+    "email": "yrtrey@usiu.ac.ke",
+    "id": "650224",
+    "stud_name": "Noah Doe John",
+    "Password": "john123",
+    "courses": {
+      "student": [],
+      "lecturer": []
+    }
+  },
+  {
+    "email": "jdtrey@usiu.ac.ke",
+    "id": "650220",
+    "stud_name": "Noah Doe John",
+    "Password": "john123",
+    "courses": {
+      "student": [],
+      "lecturer": []
+    }
+  },
+  {
+    "email": "jdsmith@usiu.ac.ke",
+    "id": "650250",
+    "stud_name": "Noah Doe John",
+    "Password": "john123",
+    "courses": {
+      "student": [],
+      "lecturer": []
+    }
+  },
+  {
+    "email": "jksmith@usiu.ac.ke",
+    "id": "660250",
+    "stud_name": "Noah Doe John",
+    "Password": "john123",
+    "courses": {
+      "student": [],
+      "lecturer": []
+    }
+  },
+  {
+    "email": "tysmith@usiu.ac.ke",
+    "id": "640250",
+    "stud_name": "Noah Doe John",
+    "Password": "john123",
+    "courses": {
+      "student": [],
+      "lecturer": []
+    }
+  },
+  {
+    "email": "tysmith@usiu.ac.ke",
+    "id": "640270",
+    "stud_name": "Noah Doe John",
+    "Password": "john123",
+    "courses": {
+      "student": [],
+      "lecturer": []
+    }
+  },
+  {
+    "email": "ankent@usiu.ac.ke",
+    "id": "645290",
+    "stud_name": "Noah Doe John",
+    "Password": "john123",
+    "courses": {
+      "student": [],
+      "lecturer": []
+    }
+  },
+  {
+    "email": "gmilkent@usiu.ac.ke",
+    "id": "645310",
+    "stud_name": "Noah Doe John",
+    "Password": "john123",
+    "courses": {
+      "student": [],
+      "lecturer": []
+    }
+  },
+  {
+    "email": "gmmaria@usiu.ac.ke",
+    "id": "645300",
+    "stud_name": "Noah Doe John",
+    "Password": "john123",
+    "courses": {
+      "student": [],
+      "lecturer": []
     }
   }
 ]

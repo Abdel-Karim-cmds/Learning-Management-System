@@ -1,13 +1,15 @@
-body{
+body {
     background-image: url('/assets/background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 
 }
-.center-div{
+
+.center-div {
     padding-top: 10%;
 }
-.btn.btn-success{
+
+.btn.btn-success {
     padding: .4em 2em;
     display: inline-block;
     padding: 5px 10px;
@@ -22,9 +24,10 @@ body{
     border-radius: 15px;
     box-shadow: 0 9px #999;
 }
+
 .btn.btn-success:hover {
     color: #663399;
-    background-color: rgba(102,51,153,0.40);
+    background-color: rgba(102, 51, 153, 0.40);
 }
 
 .btn.btn-success:active {
@@ -33,14 +36,16 @@ body{
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
+
 form {
     padding: 0 3em;
 }
-#login .title>spam{
+
+#login .title>spam {
     font-size: .8em;
 }
 
-#err{
+#err {
     font-size: large;
     color: #663399;
 }

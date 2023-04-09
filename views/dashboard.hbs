@@ -10,10 +10,15 @@
 
     <link rel="canonical" href="https://v5.getbootstrap.com/docs/5.0/examples/dashboard/">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="/static/css/style2.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/css/style2.css">
 
 </head>
 
@@ -26,44 +31,43 @@
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
                 <div id="signout">
-                <a class="nav-link" href="/logout">Sign out</a>
+                    <a class="nav-link" href="/logout">Sign out</a>
                 </div>
             </li>
         </ul>
     </nav>
 
-    
-        {{!-- The dashboard  --}}
+
+    {{!-- The dashboard --}}
     <div class="container-fluid">
         <div class="row">
             <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <div id="signoutt">
-                            <a class="nav-link active" aria-current="page" href="#">
-                                 <a href = "/dashboard" class="nav-link" style=" font-size: 20px;"> Users 
-                            </a>
+                            <div class="signoutt">
+                                <a class="nav-link active" aria-current="page" href="#">
+                                    <a href="/dashboard" class="nav-link" id="userBtn" style=" font-size: 20px;"> Users
+                                    </a>
                             </div>
                         </li>
                         </li>
                         <li class="nav-item">
-                            <div id="signoutt">
-                            <a class="nav-link" href="#">
-                                 <a href = "/a_courses" class="nav-link" style=" font-size: 20px;"> Courses 
-                            </a>
+                            <div class="signoutt">
+                                <a class="nav-link" href="#">
+                                    <a href="/a_courses" class="nav-link" style=" font-size: 20px;"> Courses
+                                    </a>
                             </div>
                         </li>
                     </ul>
                 </div>
             </nav>
 
-
-            {{!-- The User's information  --}}
+            {{!-- The User's information --}}
             <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
                 <br>
                 <br>
-                <h2 id="signoutt">Users</h2>
+                <h2 class="signoutt">Users</h2>
                 <br>
                 <br>
                 <div class="table-responsive">
@@ -82,64 +86,64 @@
                         <tr></tr>
                     </table>
                     <br>
-                   
                 </div>
 
-            {{!-- End of The User's information --}}
+                {{!-- End of The User's information --}}
 
-        {{!-- User registration form --}}
-        <div class="modal fade" id="addStudent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel"></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="person">
-                            <label for="id">Id:</label>
-                            <input type="text" class="form-control" id="studID" required>
-                            <label for="name">Name:</label>
-                            <input type="text" class="form-control" id="studName" required>
-                            <label for="id">Email:</label>
-                            <input type="email" class="form-control" id="mailStud" required>
-                            <label for="password">Password:</label>
-                            <input type="password" class="form-control" id="studPass" required>
-                            <label for="courses">Courses</label>
-                            
-                            <div class="checkList">
-                                <div id="checkboxList" class="form-check form-check-inline">
+                {{!-- User registration form --}}
+                <div class="modal fade" id="addStudent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="person">
+                                    <label for="id">Id:</label>
+                                    <input type="text" class="form-control" id="studID" required>
+                                    <label for="name">Name:</label>
+                                    <input type="text" class="form-control" id="studName" required>
+                                    <label for="id">Email:</label>
+                                    <input type="email" class="form-control" id="mailStud" required>
+                                    <label for="password">Password:</label>
+                                    <input type="password" class="form-control" id="studPass" required>
+                                    <label for="courses">Courses</label>
 
-                                </div>
+                                    <div class="checkList">
+                                        <div id="checkboxList" class="form-check form-check-inline">
+
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button id="addUserDetailsBtn" class="btn btn-warning">Submit</button>
+                                    </div>
+                                </form>
+
+
                             </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-warning">Submit</button>
-                            </div>
-                        </form>
-                        
-                            
+
+                        </div>
                     </div>
-                    
                 </div>
-            </div>
-        </div>
 
-        <!-- End of User registration form -->
-        <br>
-       <br>
+                <!-- End of User registration form -->
+                <br>
+                <br>
 
                 <div>
-                    <button  id="adding" data-toggle="modal" data-target="#addStudent">Add User</button>
+                    <button id="adding" data-toggle="modal" data-target="#addStudent">Add User</button>
                 </div>
-                   
+
             </main>
         </div>
     </div>
-    
-<script type="text/javascript" src="/static/js/addScript.js"></script>
-<script type="text/javascript" src="/static/js/adminCourse.js"></script>
+
+    <script type="text/javascript" src="/static/js/addScript.js"></script>
+    <script type="text/javascript" src="/static/js/adminCourse.js"></script>
 </body>
 
 </html>

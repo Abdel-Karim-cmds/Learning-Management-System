@@ -4,8 +4,8 @@ userLecCourse = []
 userCourses = []
 allCourses = []
 
-async function getSession(){
-    let response = await fetch('/getSession', {method:"GET"})
+async function getSession() {
+    let response = await fetch('/getSession', { method: "GET" })
     let data = await response.text()
     let sessionInfo = JSON.parse(data)
     userStudCourse = sessionInfo.courses.student
@@ -25,7 +25,7 @@ async function getCourse() {
 }
 
 //Populate the table with the user's informations
-function populateInfoTable(information){
+function populateInfoTable(information) {
     let table = document.getElementById('informationTable');
     var row = document.createElement('tr');
     var dataId = document.createElement('td');
@@ -49,24 +49,24 @@ function populateInfoTable(information){
 }
 
 //Populate the course Information table
-function populateCourseTable(courses){
+function populateCourseTable(courses) {
     courses.forEach(course => {
-        if(userStudCourse.includes(course.id)){
-            createRow(course,'Student')
+        if (userStudCourse.includes(course.id)) {
+            createRow(course, 'Student')
         }
-        if(userLecCourse.includes(course.id)){
-            createRow(course,'Lecturer')
+        if (userLecCourse.includes(course.id)) {
+            createRow(course, 'Lecturer')
         }
     });
 }
 
 // Function that creates the row with the type of individual i.e student or lecturer
-function createRow(course,type){
+function createRow(course, type) {
     var table = document.getElementById('courseTable');
     var row = document.createElement('tr');
     var dataId = document.createElement('td');
     var textId = document.createTextNode(course.id);
-    dataId.appendChild(textId)            
+    dataId.appendChild(textId)
     var dataName = document.createElement('td');
     var textName = document.createTextNode(course.c_name);
     dataName.appendChild(textName);
