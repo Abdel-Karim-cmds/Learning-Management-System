@@ -6,7 +6,7 @@ try{
     (async () => {
     const browser = await puppeteer.launch({headless:true});
     const page = await browser.newPage();
-    await page.goto('http://localhost:3000/');
+    await page.goto('https://learning-manangement.onrender.com/');      
 
     const email_input = await page.$('#loginEmail');
     await email_input.type('sasha@usiu.ac.ke');
