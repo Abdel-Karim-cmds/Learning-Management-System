@@ -56,3 +56,4 @@ jobs:
     - run: npm run acceptance_1
     - run: npm run acceptance_2
     - run: npm run acceptance_3
+    - run: npm run acceptance_4
