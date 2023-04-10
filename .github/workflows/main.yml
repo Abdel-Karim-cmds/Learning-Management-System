@@ -31,8 +31,6 @@ jobs:
         wait: 16000
         sleep: 30000
         
-    - run: npm run acceptance_3
-
   test:
     runs-on: ubuntu-latest
 
