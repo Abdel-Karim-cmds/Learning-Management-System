@@ -32,15 +32,11 @@ function populateInfoTable(information) {
   var dataName = document.createElement("td");
   var textName = document.createTextNode(information.stud_name);
   dataName.appendChild(textName);
-  var dataPass = document.createElement("td");
-  var textPass = document.createTextNode(information.Password);
-  dataPass.appendChild(textPass);
   var dataEmail = document.createElement("td");
   var textEmail = document.createTextNode(information.email);
   dataEmail.appendChild(textEmail);
   row.appendChild(dataId);
   row.appendChild(dataName);
-  //row.appendChild(textPass);
   row.appendChild(dataEmail);
   table.appendChild(row);
   getCourse();
