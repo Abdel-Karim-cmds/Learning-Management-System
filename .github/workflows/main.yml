@@ -53,6 +53,6 @@ jobs:
         node-version: '12.x'
     - run: npm install
     # - run: npm run build --if-present
-    # - run: npm run acceptance_1
+    - run: npm run acceptance_1
     # - run: npm run acceptance_2
-    - run: npm run acceptance_3
+    # - run: npm run acceptance_3
