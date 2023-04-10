@@ -30,7 +30,21 @@ jobs:
         retries: 20
         wait: 16000
         sleep: 30000
-    
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Install Dependencies
+      run: npm install
+  
+    - name: Run Tests
+      run: node acceptance_tests/acceptance.js
+      run: node acceptance_tests/AddCourseAcceptance.js
+      run: node acceptance_tests/userLoginAcceptance.js
     # - uses: actions/checkout@v3
     # - name: Use Node.js
     #   uses: actions/setup-node@v3
