@@ -1,0 +1,22 @@
+name: Acceptance Tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  acceptance-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Run acceptance tests
+        run: npm run acceptance-tests
+        with:
+          name: test-results
+          path: /acceptance-tests
