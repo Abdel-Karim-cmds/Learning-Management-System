@@ -1,5 +1,5 @@
 body {
-    background-image: url('/assets/background.jpg');
+    background-image: url('/assets/abstractbg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -18,7 +18,7 @@ body {
     text-align: center;
     text-decoration: none;
     outline: none;
-    color: #663399;
+    color: #008062;
     background-color: #D5F4EC;
     border: none;
     border-radius: 15px;
@@ -26,13 +26,13 @@ body {
 }
 
 .btn.btn-success:hover {
-    color: #663399;
+    color: #008062;
     background-color: rgba(102, 51, 153, 0.40);
 }
 
 .btn.btn-success:active {
     color: #a2eedb;
-    background-color: #663399;
+    background-color: #008062;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
@@ -47,5 +47,5 @@ form {
 
 #err {
     font-size: large;
-    color: #663399;
+    color: #008062;
 }
