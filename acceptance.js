@@ -10,7 +10,7 @@ try {
         //Get the browser and page details first and make it run in headless mode
         const browser = await puppeteer.launch({ headless: true });
         const page = await browser.newPage();
-        await page.goto('http://localhost:3000/');//This is for the login page
+        await page.goto('https://learning-manangement.onrender.com/');//This is for the login page
 
         const loginEmailInput = await page.$('#loginEmail');
         await loginEmailInput.type('admin@gmail.com');
