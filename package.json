@@ -6,9 +6,9 @@
   "scripts": {
     "test": "jest",
     "start": "nodemon server.js",
-    "acceptance_1" : "node 'acceptance.js'",
+    "acceptance_1" : "npm install & node 'acceptance.js'",
     "acceptance_2" : "node acceptance_tests/AddCourseAcceptance.js",
-    "acceptance_3" : "node userLoginAcceptance.js"
+    "acceptance_3" : "npm install && node userLoginAcceptance.js"
   },
   "keywords": [],
   "author": "",
