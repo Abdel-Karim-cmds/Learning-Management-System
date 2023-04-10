@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "start": "nodemon server.js",
-    "acceptance_1" : "node acceptance_tests/acceptance.js",
+    "acceptance_1" : "node 'acceptance.js'",
     "acceptance_2" : "node acceptance_tests/AddCourseAcceptance.js",
     "acceptance_3" : "node acceptance_tests/userLoginAcceptance.js"
   },
