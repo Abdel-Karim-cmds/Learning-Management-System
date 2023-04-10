@@ -83,11 +83,11 @@ try {
     
         if (message == 'User Inserted Successfully' && userID.includes(id)) {
             assert(message==='User Inserted Successfully')
-            console.log("Here we are");
+            console.log("User Inserted Successfully");
         }
         else{
             assert(message==='This user already exists')
-            console.log("Here we are times 2");
+            console.log("This user already exists");
         }
 
 
