@@ -30,6 +30,8 @@ jobs:
         retries: 20
         wait: 16000
         sleep: 30000
+        
+    - run: npm run acceptance_3
 
   test:
     runs-on: ubuntu-latest
@@ -51,6 +53,8 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '12.x'
+    - name: Run Tests
+
     - run: npm install
     # - run: npm run build --if-present
     # - run: npm run acceptance_1
