@@ -120,13 +120,13 @@ if(document.getElementById('person')){
 
 if(document.getElementById('course')){
 document.getElementById('course').addEventListener('submit', (e)=>{
+    e.preventDefault()
     let cID = document.getElementById('idCourse').value;
     if(cID.length!=7){
         alert("Invalid Course ID")
     }
     else{
     addCourse();}
-    e.preventDefault
 })}
 
 

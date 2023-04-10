@@ -103,7 +103,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel"></h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeCourse">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
@@ -116,7 +116,7 @@
                                     <label for="description">Course Description:</label>
                                     <input type="text" class="form-control" required id="passCourse">
                                     <div class="modal-footer">
-                                        <button class="btn btn-warning">Submit</button>
+                                        <button class="btn btn-warning" id="submitCourse">Submit</button>
                                     </div>
                                 </form>
 
@@ -132,7 +132,7 @@
                 <br>
 
                 <div>
-                    <button id="adding" data-toggle="modal" data-target="#addCourse">Add Course</button>
+                    <button id="addingCourseModal" class="btn btn-warning" data-toggle="modal" data-target="#addCourse">Add Course</button>
                 </div>
             </main>
 

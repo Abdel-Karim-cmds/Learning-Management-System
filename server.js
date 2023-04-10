@@ -159,7 +159,9 @@ app.post("/person", jsonParser, (request, response) => {
 app.post("/course", jsonParser, (request, response) => {
 
     const {id,c_name} = request.body;
-    const found = data.filter(course => course.id == id || course.c_name == c_name)
+    const found = dataCourse.filter(course => course.id == id || course.c_name == c_name)
+
+    console.log(found)
 
     if(found.length){
         console.log("This already exists")

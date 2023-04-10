@@ -38,5 +38,10 @@
     "id": "PSY1101",
     "c_name": "Introduction to Psychology",
     "description": "Elsie Newa"
+  },
+  {
+    "id": "APT3010",
+    "c_name": "Introduction to Artificial Intelligence",
+    "description": "The purpose of this course is to provide the most fundamental knowledge to the students so that they can understand what the AI is"
   }
 ]

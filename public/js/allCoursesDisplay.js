@@ -17,6 +17,7 @@ function populataTable(courses) {
         var row = document.createElement('tr');
         var dataId = document.createElement('td');
         var textId = document.createTextNode(courses.id);
+        dataId.className = 'courseID'
         dataId.appendChild(textId);
         var dataName = document.createElement('td');
         var textName = document.createTextNode(courses.c_name);
